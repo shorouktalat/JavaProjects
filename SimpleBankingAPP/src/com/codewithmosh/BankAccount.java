@@ -69,7 +69,12 @@ public class BankAccount {
                     balance-=withDraw;
 
                     break;
-                
+                case 3:
+                    System.out.println("enter amount to Deposit");
+                    deposit=scanner.nextInt();
+                    balance+=deposit;
+
+                    break;
 
                 default:
                     break;
