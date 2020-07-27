@@ -26,8 +26,12 @@ public class BankAccount {
     }
 
     void setWithDraw(int amount){
-        this.balance -=amount ;
-        lastTransaction=+amount;
+        if(amount<=balance) {
+            this.balance -= amount;
+            lastTransaction = +amount;
+        }
+        else
+            System.out.println("NOT Enough Balance");
     }
 
 
