@@ -52,15 +52,24 @@ public class BankAccount {
         System.out.println("3) Deposit");
         System.out.println("4) LastTransaction");
         System.out.println("5) Exit");
-        input=scanner.nextByte();
+
+
         do{
+            System.out.println("Enter an option");
+            input=scanner.nextByte();
             switch (input) {
                 case 1:
                     System.out.println("Balance is :"+ balance);
-                    input=0;
+
 
                     break;
+                case 2:
+                    System.out.println("enter amount to withdraw");
+                    withDraw=scanner.nextInt();
+                    balance-=withDraw;
 
+                    break;
+                
 
                 default:
                     break;
