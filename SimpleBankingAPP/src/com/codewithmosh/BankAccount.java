@@ -79,7 +79,12 @@ public class BankAccount {
                     getLastTransaction();
                     break;
 
+                case 5:
+                    System.out.println("Thank you ");
+                    break;
+
                 default:
+                    System.out.println("invalid input");
                     break;
 
             }
