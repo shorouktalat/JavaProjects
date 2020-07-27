@@ -66,14 +66,17 @@ public class BankAccount {
                 case 2:
                     System.out.println("enter amount to withdraw");
                     withDraw=scanner.nextInt();
-                    balance-=withDraw;
+                    setWithDraw(withDraw);
 
                     break;
                 case 3:
                     System.out.println("enter amount to Deposit");
                     deposit=scanner.nextInt();
-                    balance+=deposit;
+                    setDeposit(deposit);
 
+                    break;
+                case 4:
+                    getLastTransaction();
                     break;
 
                 default:
