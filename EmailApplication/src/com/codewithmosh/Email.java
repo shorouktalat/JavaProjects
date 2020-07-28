@@ -14,6 +14,9 @@ public class Email {
 
     private final byte passwordlength=8;
     private char[] password =new char[passwordlength];
+
+
+
     private int mailcapacity;
     private String email;
     private String alternatemail;
@@ -26,9 +29,9 @@ public class Email {
 
         setDepartement();
         setEmail();
-        setPassword();
+        randomPassword();
 
-       
+
 
     }
 
@@ -43,7 +46,7 @@ public class Email {
         this.email=firstname+"."+lastname+"@"+departement+companysuffix;
     }
 
-    public void setPassword() {
+    public void randomPassword() {
         String randpasswrd="abcdefghijklmnopqrstuvwxyz123456789$%^";
         for (byte i=0;i<passwordlength;i++) {
             var rand = (int) (Math.random() * randpasswrd.length());
@@ -51,5 +54,16 @@ public class Email {
 
         }
 
+    }
+    public void changePassword(char[] password) {
+        this.password = password;
+    }
+
+    public void setMailcapacity(int mailcapacity) {
+        this.mailcapacity = mailcapacity;
+    }
+
+    public void setAlternatemail(String alternatemail) {
+        this.alternatemail = alternatemail;
     }
 }
