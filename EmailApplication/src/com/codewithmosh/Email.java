@@ -65,5 +65,22 @@ public class Email {
 
     public void setAlternatemail(String alternatemail) {
         this.alternatemail = alternatemail;
+
     }
+
+    public void getname() {
+        System.out.println( firstname+lastname);
+    }
+
+    public void getMailcapacity() {
+        System.out.println( mailcapacity);
+    }
+
+    public void getEmail() {
+        System.out.println( email);
+    }
+
+
+
+
 }
