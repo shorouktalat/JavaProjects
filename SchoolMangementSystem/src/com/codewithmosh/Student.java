@@ -20,9 +20,11 @@ public class Student {
     }
 
     public void payFees(int paidFees) {
-        if(paidFees<totalFees)
-        this.paidFees += paidFees;
+        if(paidFees<totalFees) {
+            this.paidFees += paidFees;
+            School.setTotalearnedmoney(paidFees);
 
+        }
 
     }
     public int getPaidFees() {

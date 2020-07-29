@@ -21,6 +21,13 @@ public class Teacher {
 
     public void recieveMoney(int money) {
         earnedmoney+=money;
+        School.setTotalspentmoney(money);
+
+    }
+
+    public int remainingMoney()
+    {
+        return salary-earnedmoney;
 
     }
 
