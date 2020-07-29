@@ -5,6 +5,9 @@ public class Student {
 
     private String name;
     private int id;
+
+
+
     private int paidFees;
     private int totalFees;
 
@@ -21,6 +24,9 @@ public class Student {
         this.paidFees += paidFees;
 
 
+    }
+    public int getPaidFees() {
+        return paidFees;
     }
 
     public int remainingFees() {
