@@ -8,9 +8,12 @@ public class Student {
     private String studentId;
      private Scanner scanner=  new Scanner(System.in);
     private byte gradeYear;
-    private final String[] courseList= {"Math101" ,"English101" , "History 101" , "chemistry 101" , "CS 101","" };
+    private final String[] courseList= {"Math101" ,"English101" , "History101" , "chemistry101" , "CS101","" };
     private String courses;
     private final int courseCost=600;
+
+
+
     private int balance;
     private static int id=0;
 
@@ -58,4 +61,11 @@ public class Student {
 
     }
 
+    public int getBalance() {
+        return balance;
+    }
+    public void payTuition( int amount)
+    {
+        balance-=amount;
+    }
 }
