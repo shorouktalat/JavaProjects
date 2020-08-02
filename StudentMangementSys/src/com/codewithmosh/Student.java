@@ -50,12 +50,11 @@ public class Student {
             in = (scanner.nextByte() - 1);
             courses = courses + courseList[in];
              if ((in != 5)) {
-                 balance = (balance + courseCost);
+                balance = (balance + courseCost);
             }
 
         }while   ( in !=5);
-        System.out.println(courses);
-        System.out.println(balance);
+
 
     }
 
