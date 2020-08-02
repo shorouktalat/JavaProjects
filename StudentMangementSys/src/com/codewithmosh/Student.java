@@ -3,6 +3,8 @@ package com.codewithmosh;
 import java.util.Scanner;
 
 public class Student {
+
+
     private String firstName;
     private String lastName;
     private String studentId;
@@ -68,4 +70,9 @@ public class Student {
     {
         balance-=amount;
     }
+    public String showInfo() {
+        return  "name:"+firstName+lastName+"\n"+ "id:"+studentId+ "\ncourses:"+ courses;
+    }
+
+
 }
