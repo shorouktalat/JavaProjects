@@ -1,8 +1,10 @@
 package com.codewithme;
 
+import java.awt.*;
+
 public interface Paddle {
-    void move();
-    void draw();
-    int getY();
+    public void move();
+    public void draw(Graphics g);
+    public int getY();
 
 }
