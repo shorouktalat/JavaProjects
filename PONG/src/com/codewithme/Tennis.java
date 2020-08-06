@@ -34,7 +34,7 @@ public class Tennis extends Applet implements Runnable, KeyListener {
     public void paint(Graphics g) {
         g.setColor(Color.black);
         g.fillRect(0, 0, width, height);
-        if (b1.getX() < -10 || b1.getX() > width+10) {
+        if (b1.getX() < 10 || b1.getX() > width+10) {
             g.setColor(Color.red);
             g.drawString("Game Over",350,250);
 

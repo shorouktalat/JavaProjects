@@ -11,7 +11,7 @@ public class Ball {
     final int radius=10;
 
     public double randomSpeed(){
-        return  Math.random()*3+2;
+        return  Math.random()*3+5;
     }
     public int randomDirection(){
         int rand=  (int)Math.random()*2;
@@ -24,7 +24,7 @@ public class Ball {
         this.x =300 ;
         this.xVelocity = randomDirection()*randomSpeed();
         this.y =200 ;
-        this.yVelocity =randomDirection()*randomSpeed();;
+        this.yVelocity =randomDirection()*randomSpeed();
     }
 
     public void draw(Graphics g){
