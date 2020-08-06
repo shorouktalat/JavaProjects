@@ -13,11 +13,13 @@ public class Tennis extends Applet implements Runnable, KeyListener {
     private AiPaddle p2;
     Thread thread;
     private Ball b1;
+    private boolean gameStarted;
 
 
     public void init() {
         this.resize(width, height);
         this.addKeyListener(this);
+        gameStarted=false;
         b1=new Ball();
         p1=new HumanPaddle(1);
         p2= new AiPaddle(2,b1);
@@ -47,10 +49,12 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 
         for (; ; ) {
 
-            p1.move();
-            p2.move();
-            b1.move();
-            b1.checkCollision(p1,p2);
+            if(gameStarted) {
+                p1.move();
+                p2.move();
+                b1.move();
+                b1.checkCollision(p1, p2);
+            }
             repaint();
             try {
                 Thread.sleep(100);
@@ -77,6 +81,11 @@ public class Tennis extends Applet implements Runnable, KeyListener {
             p1.setUpAccl(true);
 
         }
+        else if(e.getKeyCode()==KeyEvent.VK_ENTER){
+            gameStarted=true;
+
+        }
+
 
     }
 
