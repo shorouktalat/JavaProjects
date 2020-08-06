@@ -10,11 +10,21 @@ public class Ball {
     private double yVelocity;
     final int radius=10;
 
+    public double randomSpeed(){
+        return  Math.random()*3+2;
+    }
+    public int randomDirection(){
+        int rand=  (int)Math.random()*2;
+        if (rand==1)
+                return 1;
+        else
+            return -1;
+    }
     public Ball() {
         this.x =300 ;
-        this.xVelocity = -1;
+        this.xVelocity = randomDirection()*randomSpeed();
         this.y =200 ;
-        this.yVelocity =4;
+        this.yVelocity =randomDirection()*randomSpeed();;
     }
 
     public void draw(Graphics g){
