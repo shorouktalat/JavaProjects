@@ -46,6 +46,7 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 
             p1.move();
             b1.move();
+            b1.checkCollision(p1,p1);
             repaint();
             try {
                 Thread.sleep(100);

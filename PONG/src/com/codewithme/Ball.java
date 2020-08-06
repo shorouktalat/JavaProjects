@@ -8,6 +8,7 @@ public class Ball {
     private double xVelocity;
     private double y;
     private double yVelocity;
+    final int radius=10;
 
     public Ball() {
         this.x =300 ;
@@ -18,7 +19,7 @@ public class Ball {
 
     public void draw(Graphics g){
         g.setColor(Color.white);
-        g.fillOval((int)x-10 ,(int)y- 10, 20,20);
+        g.fillOval((int)x- radius ,(int)y- radius, 20,20);
     }
     public void move (){
         x+=xVelocity;
@@ -30,6 +31,20 @@ public class Ball {
 
 
 
+    }
+    public void checkCollision(Paddle p1,Paddle p2){
+        //paddle 1(right)
+        if(x<=50) {
+            if(y>=p1.getY() && y <=p1.getY()+80){
+                xVelocity=-xVelocity;
+            }
+        }
+        if(x>=650){
+            if(y>=p2.getY() && y <=p2.getY()+80){
+                xVelocity=-xVelocity;
+
+            }
+        }
     }
     public int getX() {
         return (int)x;
