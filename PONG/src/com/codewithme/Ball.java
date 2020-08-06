@@ -12,9 +12,9 @@ public class Ball {
 
     public Ball() {
         this.x =300 ;
-        this.xVelocity = -2;
+        this.xVelocity = -1;
         this.y =200 ;
-        this.yVelocity =3;
+        this.yVelocity =4;
     }
 
     public void draw(Graphics g){

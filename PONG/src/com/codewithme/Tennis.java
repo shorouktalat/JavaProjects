@@ -10,6 +10,7 @@ public class Tennis extends Applet implements Runnable, KeyListener {
     private final int height = 500;
     private final int width = 700;
     private HumanPaddle p1;
+    private AiPaddle p2;
     Thread thread;
     private Ball b1;
 
@@ -17,9 +18,10 @@ public class Tennis extends Applet implements Runnable, KeyListener {
     public void init() {
         this.resize(width, height);
         this.addKeyListener(this);
-        p1=new HumanPaddle(1);
-        thread = new Thread(this);
         b1=new Ball();
+        p1=new HumanPaddle(1);
+        p2= new AiPaddle(2,b1);
+        thread = new Thread(this);
         thread.start();
     }
 
@@ -36,6 +38,7 @@ public class Tennis extends Applet implements Runnable, KeyListener {
 
         } else {
             p1.draw(g);
+            p2.draw(g);
             b1.draw(g);
         }
     }
@@ -45,8 +48,9 @@ public class Tennis extends Applet implements Runnable, KeyListener {
         for (; ; ) {
 
             p1.move();
+            p2.move();
             b1.move();
-            b1.checkCollision(p1,p1);
+            b1.checkCollision(p1,p2);
             repaint();
             try {
                 Thread.sleep(100);
