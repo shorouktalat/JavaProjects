@@ -77,4 +77,18 @@ public class Snake {
     public boolean isMoving() {
         return isMoving;
     }
+    public Point snakeHead(){
+        return snakePoints.get(0);
+    }
+    public boolean snakeCollision(){
+       var tempX=snakeHead().getX();
+       var  tempY=snakeHead().getY();
+       for(Point i:snakePoints) {
+           if (i.getX() == tempX && i.getY() == tempY)
+               return true;
+       }
+
+               return false;
+
+    }
 }
