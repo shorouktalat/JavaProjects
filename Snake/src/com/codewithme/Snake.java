@@ -10,6 +10,7 @@ public class Snake {
     private final int size=20;
     private int startX=150;
     private int starty=150;
+    private boolean isMoving;
 
 
 
@@ -18,6 +19,7 @@ public class Snake {
         this.snakePoints = new ArrayList<Point>();
         xDir=0;
         yDir=0;
+        isMoving=false;
         snakePoints.add(new Point(startX,starty));
         for(int i=0;i<size;i++) {
             snakePoints.add(new Point(startX-i*4,starty));
@@ -36,8 +38,21 @@ public class Snake {
 
     }
     public void move(){
-        
-    }
+        if(isMoving) {
+            var snakeStart = snakePoints.get(0);
+            var snakeLase = snakePoints.get(snakePoints.size() - 1);
+            var newStart = new Point(snakeStart.getX() +  xDir*4, snakeStart.getY() + 4 * yDir);
+            for (int i = snakePoints.size() - 1; i >= 1; i--)
+                snakePoints.set(i, snakePoints.get(i - 1));
+
+            snakePoints.set(0,newStart);
+            setMoving(false);
+        }
+
+
+        }
+
+
 
     public int getxDir() {
         return xDir;
@@ -53,5 +68,13 @@ public class Snake {
 
     public void setyDir(int yDir) {
         this.yDir = yDir;
+    }
+
+    public void setMoving(boolean moving) {
+        isMoving = moving;
+    }
+
+    public boolean isMoving() {
+        return isMoving;
     }
 }
