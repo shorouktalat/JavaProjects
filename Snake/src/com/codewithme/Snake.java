@@ -11,6 +11,7 @@ public class Snake {
     private int startX=150;
     private int starty=150;
     private boolean isMoving;
+    private boolean enlongate;
 
 
 
@@ -20,6 +21,7 @@ public class Snake {
         xDir=0;
         yDir=0;
         isMoving=false;
+        enlongate=false;
         snakePoints.add(new Point(startX,starty));
         for(int i=0;i<size;i++) {
             snakePoints.add(new Point(startX-i*4,starty));
@@ -40,14 +42,20 @@ public class Snake {
     public void move(){
         if(isMoving) {
             var snakeStart = snakePoints.get(0);
-            var snakeLase = snakePoints.get(snakePoints.size() - 1);
-            var newStart = new Point(snakeStart.getX() +  xDir*4, snakeStart.getY() + 4 * yDir);
+            var snakeLast = snakePoints.get(snakePoints.size() - 1);
+            var newStart = new Point(snakeStart.getX() + xDir * 4, snakeStart.getY() + 4 * yDir);
             for (int i = snakePoints.size() - 1; i >= 1; i--)
                 snakePoints.set(i, snakePoints.get(i - 1));
 
-            snakePoints.set(0,newStart);
+            snakePoints.set(0, newStart);
             setMoving(false);
+
+            if (enlongate) {
+                snakePoints.add(snakeLast);
+                enlongate=false;
+            }
         }
+
 
 
         }
@@ -90,5 +98,9 @@ public class Snake {
 
                return false;
 
+    }
+
+    public void setEnlongate(boolean enlongate) {
+        this.enlongate = enlongate;
     }
 }
