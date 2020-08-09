@@ -11,6 +11,7 @@ public class SnakeGame extends Applet implements  Runnable, KeyListener {
     private Snake s;
     private  boolean gameOver=false;
     Thread thread;
+    private Token t;
 
     public void init() {
         this.resize(width, height);
@@ -19,6 +20,7 @@ public class SnakeGame extends Applet implements  Runnable, KeyListener {
         gameOver=false;
 
         thread = new Thread(this);
+        t=new Token(s);
         thread.start();
     }
 
@@ -31,6 +33,8 @@ public class SnakeGame extends Applet implements  Runnable, KeyListener {
         g.fillRect(0, 0, width, height);
         if(!gameOver){
             s.draw(g);
+            t.draw(g);
+
 
         }
             else{
@@ -99,8 +103,8 @@ public class SnakeGame extends Applet implements  Runnable, KeyListener {
             if (s.snakeHead().getX() >= width || s.snakeHead().getY() >height ||s.snakeHead().getY() <=0||s.snakeHead().getX() <=0)
 
                 gameOver=true;
-            if (s.snakeCollision())
-               gameOver=true;
+//            if (s.snakeCollision())
+//               gameOver=true;
 
         }
 
@@ -116,6 +120,7 @@ public class SnakeGame extends Applet implements  Runnable, KeyListener {
         for (; ; ) {
             s.move();
            this.checkGameOver();
+           t.snakeCollision();
 
             this.repaint();
 
